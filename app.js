@@ -6,9 +6,11 @@ import express from 'express'
 import { config } from 'dotenv'
 
 // custom modules
-import homeRoute from './routes/homeRoute.js'
 import configApp from './config/app.config.js'
 import connectDB from './config/db.config.js'
+
+// Routes
+import indexRoute from './routes/indexRoute.js'
 
 // init express app = main
 const app = express()
@@ -20,6 +22,6 @@ const { PORT } = process.env
 configApp(app)
 connectDB() // connect to db
 
-homeRoute(app)
+app.use('/', indexRoute)
 
-app.listen(PORT, log(`Server running on PORT ${PORT}\n`))
+app.listen(PORT || 3000, log(`Server running on PORT ${PORT}\n`))
