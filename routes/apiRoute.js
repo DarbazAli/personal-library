@@ -3,6 +3,13 @@ import asyncHandler from 'express-async-handler'
 
 const router = express.Router()
 
+/* 
+    #1 POST Title to book llist /api/books -> DONE
+    #2 GET List of All bokks - GET /api/books -> DONE
+    #3 GET Single Book by id - GET /api/books/:id -> DONE
+    #4 POST Comment to a book POST /api/books/:id -> DONE
+*/
+
 import Book from '../model/bookModel.js'
 
 // @desc    Fetch all books
@@ -53,6 +60,21 @@ router.post('/', (req, res) => {
         if (err) res.json(err)
         res.json({ title: result.title, _id: result._id })
     })
+})
+
+/*===========================================
+    @desc    Post Comment to a book
+    @route   POST /api/books/:id
+    @access  Public
+=============================================*/
+router.post('/:id', (req, res) => {
+    const { id, comment } = req.body
+
+    Book.findByIdAndUpdate(id, { $push: { comments: comment } })
+        .then((doc) => {
+            res.json(doc)
+        })
+        .catch((err) => res.json(err))
 })
 
 export default router
