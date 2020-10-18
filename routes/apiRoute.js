@@ -79,6 +79,23 @@ router.post('/:id', (req, res) => {
 })
 
 /*===========================================
+    @desc    DELETE ALL BOOKS
+    @route   DELETE /api/books/
+    @access  Public
+=============================================*/
+router.delete('/', (req, res) => {
+    Book.deleteMany({})
+        .then((doc) => {
+            if (doc) {
+                res.json({ message: 'complete delete successful' })
+            } else {
+                res.json({ message: 'book list is empty' })
+            }
+        })
+        .catch((err) => res.json(err))
+})
+
+/*===========================================
     @desc    DELETE book by id
     @route   DELETE /api/books/:id
     @access  Public
