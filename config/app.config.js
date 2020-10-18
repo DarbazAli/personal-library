@@ -1,6 +1,7 @@
 import bodyParser from 'body-parser'
 import express from 'express'
 import helmet from 'helmet'
+import methodOverride from 'method-override'
 
 const configApp = (app) => {
     // setup template engine
@@ -12,6 +13,7 @@ const configApp = (app) => {
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(bodyParser.json())
     app.use(helmet.xssFilter())
+    app.use(methodOverride('_method'))
 }
 
 export default configApp

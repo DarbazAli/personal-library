@@ -8,6 +8,7 @@ const router = express.Router()
     #2 GET List of All bokks - GET /api/books -> DONE
     #3 GET Single Book by id - GET /api/books/:id -> DONE
     #4 POST Comment to a book POST /api/books/:id -> DONE
+    #5 DELETE Book by id    DELETE /api/books/:id 
 */
 
 import Book from '../model/bookModel.js'
@@ -73,6 +74,24 @@ router.post('/:id', (req, res) => {
     Book.findByIdAndUpdate(id, { $push: { comments: comment } })
         .then((doc) => {
             res.json(doc)
+        })
+        .catch((err) => res.json(err))
+})
+
+/*===========================================
+    @desc    DELETE book by id
+    @route   DELETE /api/books/:id
+    @access  Public
+=============================================*/
+router.delete('/:id', (req, res) => {
+    const { book_id } = req.body
+    Book.findByIdAndRemove(book_id)
+        .then((doc) => {
+            if (doc) {
+                res.json({ message: 'Delete successful' })
+            } else {
+                res.json({ Error: `${book_id} not found` })
+            }
         })
         .catch((err) => res.json(err))
 })
