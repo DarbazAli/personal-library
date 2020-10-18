@@ -19,7 +19,16 @@ import Book from '../model/bookModel.js'
 router.get(
     '/',
     asyncHandler(async (req, res) => {
-        const books = await Book.find({})
+        const books = await Book.aggregate([
+            { $match: {} },
+            {
+                $project: {
+                    _id: '$_id',
+                    title: '$title',
+                    commentcount: { $size: '$comments' },
+                },
+            },
+        ])
         res.json(books)
     })
 )
@@ -59,7 +68,7 @@ router.post('/', (req, res) => {
 
     newBook.save((err, result) => {
         if (err) res.json(err)
-        res.json({ title: result.title, _id: result._id })
+        res.json(result)
     })
 })
 
