@@ -2,16 +2,18 @@ doctype html
 html
     include ./head.pug
     body
+        div.container
+            
+            a(href="/") Home
 
-        h1 #{message}
-        a(href="/") Home
+            h1 Personal Library API
 
-        include ./newBookForm.pug
+            include ./newBookForm.pug
 
-        include ./newCommentForm.pug
+            include ./newCommentForm.pug
 
-        include ./deleteBookForm.pug
+            include ./deleteBookForm.pug
 
-        include ./deleteAllBooksForm.pug
+            include ./deleteAllBooksForm.pug
 
-        include ./footer.pug
+            include ./footer.pug
