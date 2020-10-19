@@ -30,6 +30,7 @@ router.get(
             },
         ])
         res.json(books)
+        // res.render('index', { bookList: books })
     })
 )
 

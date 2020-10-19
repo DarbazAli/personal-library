@@ -1,21 +1,98 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #2e2e2e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .container {
     margin: 0 auto;
     width: 100%;
-    max-width: 1004px;
+    max-width: 1007px;
+    text-align: center;
 }
 
-h3, h1 {
+a {
+    text-decoration: none;
+    color:#498FE0;
+}
+
+h2, h3 {
     font-weight: 600;
 }
 
+h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+/* NAVIGATION */
+header {
+    text-align: center;
+    margin: 30px auto;
+}
+header ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+    margin: 0 auto;
+}
+
+header ul li {
+    font-weight: 500;
+    font-size: 17px;
+    text-align: left;
+    color: #35313e;
+}
+
 form {
-    padding: 40px;
-    border: 1px solid gray;
+    padding: 16px;
     border-radius: 5px;
-    width: 350px;
-    margin: 50px 0;
+    background-color: #F5F5F5;
+}
+
+form.new_book_form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+input[type="text"] {
+    width: 76%;
+    height: 60px;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #b7b7b7;
+    padding: 20px;
+    outline: 0;
+}
+
+button.button-primary {
+    width: 20%;
+    height: 60px;
+    background: #a692d1;
+    filter: drop-shadow(0px 3px 6px rgba(167, 153, 198, 0.35));
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 16px;
+
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+    transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+button.button-primary:hover {
+    filter: drop-shadow(0px 5px 10px rgba(162, 147, 192, 0.445));
 }

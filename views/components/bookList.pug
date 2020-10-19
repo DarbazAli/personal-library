@@ -1,0 +1,12 @@
+div
+    if bookList
+        Books
+        ol 
+            each book in bookList
+                - var title= book.title
+                - var coments= book.commentcount
+
+                li 
+                    a(href=`/api/books/${book._id}`) #{name}
+                    p Comments: #{coments}
+
