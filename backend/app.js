@@ -1,6 +1,7 @@
 'use strict'
 console.clear()
 const log = console.log
+global.log = log
 
 import express from 'express'
 import { config } from 'dotenv'

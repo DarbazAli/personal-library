@@ -1,10 +1,17 @@
 import React from 'react'
+import BookScreen from './screens/BookScreen'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 
 function App() {
     return (
-        <div className='App'>
-            <h1>This is FRONT-END</h1>
-        </div>
+        <Router>
+            <main className='py-3'>
+                <Container>
+                    <Route path='/' component={BookScreen} exact />
+                </Container>
+            </main>
+        </Router>
     )
 }
 

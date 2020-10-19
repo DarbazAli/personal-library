@@ -29,8 +29,8 @@ router.get(
                 },
             },
         ])
+        // log(books)
         res.json(books)
-        // res.render('index', { bookList: books })
     })
 )
 
